@@ -139,7 +139,7 @@ fun GYEAppTopBar(
         title = {
             Text(
                 text = stringResource(currentScreen.title),
-                style = MaterialTheme.typography.labelLarge,
+                style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onPrimary
             )
         },

@@ -4,7 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.proyecto.gyeapp.R
 import com.proyecto.gyeapp.model.Recommendation
 import com.proyecto.gyeapp.ui.utils.ContentType
@@ -32,7 +33,7 @@ fun GYEAppDetailScreen(
     if (contentType == ContentType.LIST_AND_DETAIL) {
         Row(
             modifier = modifier
-                .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
+                .padding(horizontal = dimensionResource(R.dimen.padding_large)),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
@@ -44,8 +45,8 @@ fun GYEAppDetailScreen(
                     painter = painterResource(recommendation.image),
                     contentDescription = null,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(R.dimen.padding_medium))
+                        .fillMaxSize()
+                        .padding(vertical = dimensionResource(R.dimen.padding_large))
                         .shadow(dimensionResource(R.dimen.padding_medium)),
                     contentScale = ContentScale.Crop
                 )
@@ -55,7 +56,9 @@ fun GYEAppDetailScreen(
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier
                     .weight(1f)
-                    .padding(start = dimensionResource(R.dimen.padding_medium))
+                    .padding(start = dimensionResource(R.dimen.padding_large),
+                        top = dimensionResource(R.dimen.padding_large),
+                        bottom = dimensionResource(R.dimen.padding_large))
                     .verticalScroll(rememberScrollState()),
             )
 
@@ -63,7 +66,8 @@ fun GYEAppDetailScreen(
     } else {
         Column(
             modifier = modifier
-                .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
+                .padding(horizontal = dimensionResource(R.dimen.padding_large),
+                    vertical = dimensionResource(R.dimen.padding_large)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
@@ -75,8 +79,7 @@ fun GYEAppDetailScreen(
                     painter = painterResource(recommendation.image),
                     contentDescription = null,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(R.dimen.padding_medium))
+                        .fillMaxSize()
                         .shadow(dimensionResource(R.dimen.padding_medium)),
                     contentScale = ContentScale.Crop
                 )
@@ -86,10 +89,23 @@ fun GYEAppDetailScreen(
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier
                     .weight(2f)
-                    .padding(top = dimensionResource(R.dimen.padding_medium))
+                    .padding(top = dimensionResource(R.dimen.padding_large))
                     .verticalScroll(rememberScrollState()),
             )
 
         }
     }
+}
+
+@Preview(showBackground = true,
+    widthDp = 640,
+    heightDp = 340)
+@Composable
+fun GYEAppDetailScreenPreview() {
+    val gyeAppUiState = GYEAppUiState()
+    val contentType = ContentType.LIST_AND_DETAIL
+    GYEAppDetailScreen(
+        recommendation = gyeAppUiState.currentSelectedRecommendation,
+        contentType = contentType
+    )
 }
