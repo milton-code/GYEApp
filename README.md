@@ -17,4 +17,7 @@ Android app about recommended places to visit in a city. The UI is developed usi
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/milton-code/GYEApp/blob/69cfa964ecb5bb74b71030ae5d050786a3b53577/categories_screenshot.jpeg)
+![App Screenshot](https://github.com/milton-code/GYEApp/blob/69cfa964ecb5bb74b71030ae5d050786a3b53577/parks_screenshot.jpeg)
+![App Screenshot](https://github.com/milton-code/GYEApp/blob/69cfa964ecb5bb74b71030ae5d050786a3b53577/samanes_screenshot.jpeg)
+![App Screenshot](https://github.com/milton-code/GYEApp/blob/69cfa964ecb5bb74b71030ae5d050786a3b53577/samanes_horizontal_screenshot.jpeg)
